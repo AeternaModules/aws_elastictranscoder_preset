@@ -8,11 +8,11 @@ output "elastictranscoder_presets_arn" {
 }
 output "elastictranscoder_presets_audio" {
   description = "Map of audio values across all elastictranscoder_presets, keyed the same as var.elastictranscoder_presets"
-  value       = { for k, v in aws_elastictranscoder_preset.elastictranscoder_presets : k => v.audio if v.audio != null && length(v.audio) > 0 }
+  value       = { for k, v in aws_elastictranscoder_preset.elastictranscoder_presets : k => one(v.audio) if v.audio != null && length(v.audio) > 0 }
 }
 output "elastictranscoder_presets_audio_codec_options" {
   description = "Map of audio_codec_options values across all elastictranscoder_presets, keyed the same as var.elastictranscoder_presets"
-  value       = { for k, v in aws_elastictranscoder_preset.elastictranscoder_presets : k => v.audio_codec_options if v.audio_codec_options != null && length(v.audio_codec_options) > 0 }
+  value       = { for k, v in aws_elastictranscoder_preset.elastictranscoder_presets : k => one(v.audio_codec_options) if v.audio_codec_options != null && length(v.audio_codec_options) > 0 }
 }
 output "elastictranscoder_presets_container" {
   description = "Map of container values across all elastictranscoder_presets, keyed the same as var.elastictranscoder_presets"
@@ -32,7 +32,7 @@ output "elastictranscoder_presets_region" {
 }
 output "elastictranscoder_presets_thumbnails" {
   description = "Map of thumbnails values across all elastictranscoder_presets, keyed the same as var.elastictranscoder_presets"
-  value       = { for k, v in aws_elastictranscoder_preset.elastictranscoder_presets : k => v.thumbnails if v.thumbnails != null && length(v.thumbnails) > 0 }
+  value       = { for k, v in aws_elastictranscoder_preset.elastictranscoder_presets : k => one(v.thumbnails) if v.thumbnails != null && length(v.thumbnails) > 0 }
 }
 output "elastictranscoder_presets_type" {
   description = "Map of type values across all elastictranscoder_presets, keyed the same as var.elastictranscoder_presets"
@@ -40,7 +40,7 @@ output "elastictranscoder_presets_type" {
 }
 output "elastictranscoder_presets_video" {
   description = "Map of video values across all elastictranscoder_presets, keyed the same as var.elastictranscoder_presets"
-  value       = { for k, v in aws_elastictranscoder_preset.elastictranscoder_presets : k => v.video if v.video != null && length(v.video) > 0 }
+  value       = { for k, v in aws_elastictranscoder_preset.elastictranscoder_presets : k => one(v.video) if v.video != null && length(v.video) > 0 }
 }
 output "elastictranscoder_presets_video_codec_options" {
   description = "Map of video_codec_options values across all elastictranscoder_presets, keyed the same as var.elastictranscoder_presets"
